@@ -1,0 +1,13 @@
+.container-fluid
+  .row-fluid
+    .span3
+      .well.sidebar-nav
+        %ul.nav.nav-list
+          %li.nav-header Workouts
+          %li{class: active?('archive') + " nav-log" }
+            = link_to 'Past', '/archive'
+          %li{class: active?('logwod') + " nav-log" }
+            = link_to 'Log', '/logwod'
+          %li.nav-header Account          
+          %li{class: active?('profile') + " nav-log" }
+            = link_to 'Profile', '/profile' 
