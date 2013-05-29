@@ -1,9 +1,10 @@
 module ApplicationHelper
-	def nav_class(action, page, other=nil)
-		if action == page
-      "active #{other if other}"
+
+	def active?(specified_tab)
+		if "controller.action_name" == specified_tab
+      "active"
     else
-	  	"#{other if other}"
+	  	""
     end
 	end
 

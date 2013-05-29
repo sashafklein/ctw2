@@ -1,10 +1,10 @@
 class Workout
-  include MongoMapper::Document
+	include Mongoid::Document
 
-  key :name, String
-  key :author_id, Integer
-  key :description, String
-  key :score, String
-  key :created_at, Date
+  field :name, type: String
+  field :author_id, type: Integer
+  field :description, type: String
+  field :score, type: String
+  field :created_at, type: Date
 
 end

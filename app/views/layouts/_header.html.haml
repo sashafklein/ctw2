@@ -6,30 +6,29 @@
         %span.icon-bar
         %span.icon-bar
       %a.brand{:href => "/"} crushthewod
-      - action = controller.action_name
       .nav-collapse.collapse
         %ul.nav
-          %li{class: nav_class(action, 'home')}
+          %li{:class => "#{active?('home')}" }
             =link_to 'Home', '/'
-          %li{class: nav_class(action, 'archive', 'nav-log') }
+          %li{:class => "#{active?('archive')}" }
             =link_to 'Past', '/archive'
-          / - if !current_user.signed_in?
-          %li{class: nav_class(action, 'home')}
-            =link_to 'Sign Up', '/register'
-          %li{class: nav_class(action, 'blog')}
+          - if user_signed_in?
+            %li{:class => "#{active?('home')}" }
+              =link_to 'Sign Up', '/register'
+          %li{:class => "#{active?('blog')}" }
             =link_to 'Blog', '/blog'
-          %li{class: nav_class(action, 'contact')}
+          %li{:class => "#{active?('contact')}" }
             =link_to 'Contact', '/contact'
-        / - if !current_user.signed_in
-        %form.navbar-form.pull-right{:action => "/login", :method => "post"}
-          %input.span2{:name => "username", :placeholder => "Email Address", :type => "text"}/
-          %input.span2{:name => "password", :placeholder => "Password", :type => "password"}/
-          %button.btn{:type => "submit"} Sign in
-        / - else 
-        .navbar-message
-          %span
-            / Logged in as: #{user.username}
-          %a.btn.btn-inverse{:href => "/logout"} Sign out
+        - if user_signed_in?
+          %form.navbar-form.pull-right{:action => "/login", :method => "post"}
+            %input.span2{:name => "username", :placeholder => "Email Address", :type => "text"}/
+            %input.span2{:name => "password", :placeholder => "Password", :type => "password"}/
+            %button.btn{:type => "submit"} Sign in
+        - else 
+          .navbar-message
+            %span
+              / Logged in as: #{current_user.name}
+            %a.btn.btn-inverse{:href => "/logout"} Sign out
 
 .container-fluid
   .row-fluid
@@ -37,10 +36,10 @@
       .well.sidebar-nav
         %ul.nav.nav-list
           %li.nav-header Workouts
-          %li{class: nav_class(action, 'archive', 'nav-log') }
+          %li{:class => "#{active?('archive')} nav-log" }
             =link_to 'Past', '/archive'
-          %li{class: nav_class(action, 'logwod', 'nav-log') }
+          %li{:class => "#{active?('logwod')} nav-log" }
             =link_to 'Log', '/logwod'
           %li.nav-header Account          
-          %li{class: nav_class(action, 'profile', 'nav-log') }
+          %li{:class => "#{active?('profile')} nav-log" }
             =link_to 'Profile', '/profile'
