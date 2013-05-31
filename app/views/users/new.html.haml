@@ -1,2 +1,16 @@
-%p controller action is:
-= controller.action_name
+%form{:action => "/register", :method => "post"}
+  %fieldset
+    %legend Sign up below
+    .control-group
+      .controls
+        %input{:name => "username", :placeholder => "Email Address", :type => "email"}/
+        %p.help-block
+    .control-group
+      .controls
+        %input{"data-validation-minlength-message" => "Your password must be at least four characters long.", :minlength => "4", :name => "password", :placeholder => "Password", :type => "password"}/
+        %p.help-block
+    .control-group
+      .controls
+        %input{:minlength => "4", :name => "phone", :placeholder => "Phone (e.g., 415-555-1234)", :type => "text"}/
+        %p.help-block
+    %button.btn{:type => "submit"} Register

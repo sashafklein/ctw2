@@ -1,6 +1,9 @@
-All you should need to do to get this going is to run "bundle install" (assuming Rails is installed) and then run the server. Doesn't do much, isn't quite styled correctly, and has a blank root path at the moment, but I'll start fixing it up. 
+***UPDATE***
+
+Added some stuff, but the Mongo/Mongoid configuration isn't complete yet. I have two overlapping files, and I'm not sure which is right yet, so the database stuff isn't quite working yet.
 
 Next on my agenda:
+- Fixing the above
 - Sessions controller/authorization
 - User infrastructure
 - Responsive design

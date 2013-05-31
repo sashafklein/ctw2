@@ -1,11 +1,24 @@
 Ctw2::Application.routes.draw do
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
+
   devise_for :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  root to: 'users#new'
+  root to: 'static#home'
+  get "/about" => 'static#about'
+  get "/contact" => 'static#contact'
+  get "/blog" => 'static#blog'
+  
   resources :users
+  
+  get '/register' => 'users#new'
+  post '/register' => 'users#create'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

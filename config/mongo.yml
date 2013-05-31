@@ -1,3 +1,4 @@
+## NOT SURE WHICH OF THESE YML FILES IS RIGHT, SO THE DB STUFF ISN'T WORKING
 defaults: &defaults
   host: 127.0.0.1
   port: 27017
