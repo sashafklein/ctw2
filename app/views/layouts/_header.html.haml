@@ -10,16 +10,17 @@
         %ul.nav
           %li{class: active?('home') }
             = link_to 'Home', '/'
-          %li{class: active?('archive') }
-            = link_to 'Past', '/archive'
           - if user_signed_in?
+            %li{class: active?('archive') }
+              = link_to 'Past', '/archive'
+          - if !user_signed_in?
             %li{class: active?('home') }
               = link_to 'Sign Up', '/register'
           %li{class: active?('blog') }
             = link_to 'Blog', '/blog'
           %li{class: active?('contact') }
             = link_to 'Contact', '/contact'
-        - if user_signed_in?
+        - if !user_signed_in?
           %form.navbar-form.pull-right{:action => "/login", :method => "post"}
             %input.span2{:name => "username", :placeholder => "Email Address", :type => "text"}/
             %input.span2{:name => "password", :placeholder => "Password", :type => "password"}/
