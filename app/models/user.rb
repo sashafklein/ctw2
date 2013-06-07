@@ -24,7 +24,10 @@ class User
   field :current_sign_in_ip, :type => String
   field :last_sign_in_ip,    :type => String
 
-  ## Confirmable
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   # field :confirmation_token,   :type => String
   # field :confirmed_at,         :type => Time
   # field :confirmation_sent_at, :type => Time
@@ -51,5 +54,6 @@ class User
   field :pro_user, type: Boolean
   field :active, type: Boolean
   field :created_at, type: Date
+
 
 end

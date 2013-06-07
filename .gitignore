@@ -13,3 +13,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore Zeus files
+zeus.json
+custom_plan.rb
+.zeus.sock/

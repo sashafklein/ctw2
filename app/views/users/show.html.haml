@@ -1,1 +1,28 @@
-Working
+= render 'layouts/sidebar'
+= form_for @user do |f|
+
+	= f.label :first_name
+	= f.text_field :first_name
+
+	= f.label :last_name
+	= f.text_field :last_name
+
+	= f.label :height
+	= f.text_field :height
+
+	= f.label :weight
+	= f.text_field :weight
+
+  = f.label :email
+  = f.text_field :email
+
+  = f.label :password
+  = f.password_field :password, placeholder: "Password"
+
+  = f.label :password_confirmation
+  = f.password_field :password_confirmation
+
+  = f.label :phone, "Phone Number"
+  = f.text_field :phone, placeholder: '(012)-345-6789'
+
+  = f.submit "Sign Up"
