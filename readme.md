@@ -1,9 +1,7 @@
-***UPDATE***
+***JUNE 6***
 
-THINK I FIXED THE DB CONFIG ISSUE
-- Onto making Controller Mongoid friendly
+Think I just got devise and mongoid to work nicely together. It's still very basic, but I think most things are now officially working as I expect them to. Next, I plan to:
 
-Next on my agenda:
-- Sessions controller/authorization
-- User infrastructure
-- Responsive design
+- put together all the devise views etc
+- create all the other models
+- do cancan

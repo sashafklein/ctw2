@@ -8,25 +8,23 @@
       %a.brand{:href => "/"} crushthewod
       .nav-collapse.collapse
         %ul.nav
+
           %li{class: active?('home') }
             = link_to 'Home', '/'
-          - if user_signed_in?
-            %li{class: active?('archive') }
-              = link_to 'Past', '/archive'
-          - if !user_signed_in?
-            %li{class: active?('home') }
-              = link_to 'Sign Up', new_user_path
           %li{class: active?('blog') }
             = link_to 'Blog', '/blog'
           %li{class: active?('contact') }
             = link_to 'Contact', '/contact'
-        - if !user_signed_in?
-          %form.navbar-form.pull-right{:action => "/login", :method => "post"}
-            %input.span2{:name => "username", :placeholder => "Email Address", :type => "text"}/
-            %input.span2{:name => "password", :placeholder => "Password", :type => "password"}/
-            %button.btn{:type => "submit"} Sign in
-        - else 
-          .navbar-message
-            %span
-              / Logged in as: #{current_user.name}
-            %a.btn.btn-inverse{:href => "/logout"} Sign out
+
+          - if user_signed_in?
+            %li{class: active?('archive') }
+              = link_to 'Log', '/archive'
+            %li
+              = link_to "Sign out", destroy_user_session_path, method: :delete
+
+          - else
+            %li
+              = link_to 'Sign Up', new_user_path
+            %li
+              = link_to 'Sign In', new_user_session_path
+              = render partial: 'layouts/sign_in'
