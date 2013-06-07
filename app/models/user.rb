@@ -1,18 +1,18 @@
 class User
-  include MongoMapper::Document
+  include Mongoid::Document
 
-  key :first_name, String
-  key :last_name, String
-  key :phone, String
-  key :height, Integer
-  key :weight, Integer
-  key :birthdate, Date
-  key :email_verification_code, String
-  key :email_verified, Boolean
-  key :phone_verification_code, String
-  key :phone_verified, Boolean
-  key :pro_user, Boolean
-  key :active, Boolean
-  key :created_at, Boolean
+  field :first_name, type: String
+  field :last_name, type: String
+  field :phone, type: String
+  field :height, type: Integer
+  field :weight, type: Integer
+  field :birthdate, type: Date
+  field :email_verification_code, type: String
+  field :email_verified, type: Boolean
+  field :phone_verification_code, type: String
+  field :phone_verified, type: Boolean
+  field :pro_user, type: Boolean
+  field :active, type: Boolean
+  field :created_at, type: Date
 
 end
