@@ -21,10 +21,6 @@ module Ctw2
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    config.generators do |g|
-      g.orm :mongo_mapper
-    end
-
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
 
@@ -68,5 +64,6 @@ module Ctw2
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    config.assets.initialize_on_precompile = false
   end
 end
