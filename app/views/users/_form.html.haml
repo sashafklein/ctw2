@@ -1,0 +1,37 @@
+= form_for @user do |f|
+  
+  - if controller.action_name == "edit"
+
+    %h2 Basic Info
+
+    = f.label :first_name
+    = f.text_field :first_name
+
+    = f.label :last_name
+    = f.text_field :last_name
+
+  = f.label :email
+  = f.text_field :email  
+
+  = f.label :password
+  = f.password_field :password, placeholder: "Password"
+
+  = f.label :password_confirmation
+  = f.password_field :password_confirmation
+
+  = f.label :phone, "Phone Number"
+  = f.text_field :phone, placeholder: '(987)-654-3210'
+
+  - if controller.action_name == "edit"
+    %h2 Other Info
+
+    = f.label :birthdate
+    = f.date_select :birthdate, :order => [:month, :day, :year]
+
+    = f.label :height, "Height (inches)"
+    = f.text_field :height
+
+    = f.label :weight "Weight (pounds)"
+    = f.text_field :weight
+
+  = f.submit "Sign Up"

@@ -1,0 +1,14 @@
+%h1 Users Index
+%table.table
+	%tr 
+		%td Email
+		%td Phone
+		%td Logged Wod Count
+		%td name
+
+	- @users.each do |u|
+		%tr
+			%td #{u.email}
+			%td #{u.phone}
+			%td NA
+			%td #{ link_to name_or_no(u), u }

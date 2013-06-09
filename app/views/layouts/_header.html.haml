@@ -21,6 +21,8 @@
               = link_to 'Log', '/archive'
             %li
               = link_to "Sign out", destroy_user_session_path, method: :delete
+            %li 
+              = link_to "Profile", current_user
 
           - else
             %li

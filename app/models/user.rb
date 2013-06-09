@@ -24,10 +24,6 @@ class User
   field :current_sign_in_ip, :type => String
   field :last_sign_in_ip,    :type => String
 
-  def full_name
-    "#{first_name} #{last_name}"
-  end
-
   # field :confirmation_token,   :type => String
   # field :confirmed_at,         :type => Time
   # field :confirmation_sent_at, :type => Time
@@ -55,5 +51,24 @@ class User
   field :active, type: Boolean
   field :created_at, type: Date
 
+  def profile_complete
+    if weight && height && name && birthdate
+      return true
+    else
+      return false
+    end
+  end
+
+  def full_name
+    if first_name && last_name
+      "#{first_name} #{last_name}"
+    else
+      false
+    end
+  end
+
+  def name
+    full_name
+  end
 
 end

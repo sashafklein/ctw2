@@ -1,28 +1,19 @@
-= render 'layouts/sidebar'
-= form_for @user do |f|
 
-	= f.label :first_name
-	= f.text_field :first_name
+.row
+  .span4
+    = render 'layouts/sidebar'
 
-	= f.label :last_name
-	= f.text_field :last_name
+  .span8.profile
+    %h1 Your Profile
 
-	= f.label :height
-	= f.text_field :height
+    %h2 Basic Info
+    .profile
+      %h3 Name: #{ attr_or_edit(@user, @user.full_name) }
+      %h3 Email: #{ attr_or_edit(@user, @user.email) }
+      %h3 Phone: #{ attr_or_edit(@user, @user.phone) }
 
-	= f.label :weight
-	= f.text_field :weight
-
-  = f.label :email
-  = f.text_field :email
-
-  = f.label :password
-  = f.password_field :password, placeholder: "Password"
-
-  = f.label :password_confirmation
-  = f.password_field :password_confirmation
-
-  = f.label :phone, "Phone Number"
-  = f.text_field :phone, placeholder: '(012)-345-6789'
-
-  = f.submit "Sign Up"
+    %h2 Other Info
+    .profile
+      %h3 Height: #{ attr_or_edit(@user, @user.height) }
+      %h3 Weight: #{ attr_or_edit(@user, @user.weight) }
+      %h3 Birthdate: #{ attr_or_edit(@user, @user.birthdate) }
