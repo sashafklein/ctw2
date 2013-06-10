@@ -1,12 +1,13 @@
-.container-fluid
-  .row-fluid
-    .well.sidebar-nav
-      %ul.nav.nav-list
-        %li.nav-header Workouts
-        %li.nav-log{ class: active?('archive') }
-          = link_to 'Past', '/archive'
-        %li.nav-log{ class: active?('logwod') }
-          = link_to 'Log', '/logwod'
-        %li.nav-header Account          
-        %li.nav-log{ class: active?('profile') }
-          = link_to 'Profile', '/profile' 
+.span4
+  .container-fluid
+    .row-fluid
+      .well.sidebar-nav
+        %ul.nav.nav-list
+          %li.nav-header Workouts
+          %li.nav-log{ class: active?('archive') }
+            = link_to 'Past', '/archive'
+          %li.nav-log{ class: active?('logwod') }
+            = link_to 'Log', '/logwod'
+          %li.nav-header Account          
+          %li.nav-log{ class: active?('profile') }
+            = link_to 'Profile', current_user

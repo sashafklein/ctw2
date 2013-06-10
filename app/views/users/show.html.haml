@@ -1,19 +1,25 @@
+= render 'layouts/sidebar'
+.span7.profile.well
+  %h1 Your Profile
 
-.row
-  .span4
-    = render 'layouts/sidebar'
+  %h2 Basic Info
+  %h3 
+    Name: 
+    %span #{ attr_or_edit(@user, @user.full_name) }
+  %h3 
+    Email: 
+    %span #{ attr_or_edit(@user, @user.email) }
+  %h3 
+    Phone: 
+    %span #{ attr_or_edit(@user, @user.phone) }
 
-  .span8.profile
-    %h1 Your Profile
-
-    %h2 Basic Info
-    .profile
-      %h3 Name: #{ attr_or_edit(@user, @user.full_name) }
-      %h3 Email: #{ attr_or_edit(@user, @user.email) }
-      %h3 Phone: #{ attr_or_edit(@user, @user.phone) }
-
-    %h2 Other Info
-    .profile
-      %h3 Height: #{ attr_or_edit(@user, @user.height) }
-      %h3 Weight: #{ attr_or_edit(@user, @user.weight) }
-      %h3 Birthdate: #{ attr_or_edit(@user, @user.birthdate) }
+  %h2 Other Info
+  %h3 
+    Height: 
+    %span #{ attr_or_edit(@user, @user.height) }
+  %h3 
+    Weight: 
+    %span #{ attr_or_edit(@user, @user.weight) }
+  %h3 
+    Birthdate: 
+    %span #{ attr_or_edit(@user, @user.birthdate) }
