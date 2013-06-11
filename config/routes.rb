@@ -10,7 +10,9 @@ Ctw2::Application.routes.draw do
   get "/contact" => 'static#contact'
   get "/blog" => 'static#blog'
   
-  resources :users
+  resources :users do 
+    resources :workouts
+  end
   
   get '/register' => 'users#new'
   post '/register' => 'users#create'

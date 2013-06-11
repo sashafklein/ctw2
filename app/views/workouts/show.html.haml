@@ -1,0 +1,14 @@
+= render 'layouts/sidebar'
+.span7.profile.well
+  %h1 Your Workout
+
+  %h2 Basic Info
+  %h3 
+    Name: 
+    %span #{ @workout.name }
+  %h3 
+    Description: 
+    %span #{ @workout.description }
+  %h3 
+    Score: 
+    %span #{ @workout.score }

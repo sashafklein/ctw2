@@ -5,9 +5,9 @@
         %ul.nav.nav-list
           %li.nav-header Workouts
           %li.nav-log{ class: active?('archive') }
-            = link_to 'Past', '/archive'
+            = link_to 'Past', user_workouts_path(current_user)
           %li.nav-log{ class: active?('logwod') }
-            = link_to 'Log', '/logwod'
+            = link_to 'Log', new_user_workout_path(current_user)
           %li.nav-header Account          
           %li.nav-log{ class: active?('profile') }
             = link_to 'Profile', current_user

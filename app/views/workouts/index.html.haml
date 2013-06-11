@@ -1,0 +1,10 @@
+= render 'layouts/sidebar'
+%h1 Your Workouts
+%table.table
+	%tr 
+		%td Email
+		%td Phone
+		%td Logged Wod Count
+		%td name
+	- @workouts.each do |w|
+		= render w

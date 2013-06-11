@@ -1,7 +1,7 @@
 module ApplicationHelper
 
 	def active?(specified_tab)
-		if "controller.action_name" == specified_tab
+		if controller.action_name == specified_tab
       "active"
     else
 	  	""
@@ -18,4 +18,15 @@ module ApplicationHelper
 		"TBNamed"
   end
 
+  def edit_or_log
+    if controller.action_name == "new"
+      "Log"
+    else
+      "Edit"
+    end
+  end
+
+  def date_in_words(date)
+    date.strftime("%B %d, %Y")
+  end
 end
