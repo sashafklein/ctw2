@@ -1,7 +1,20 @@
-***JUNE 6***
+***JUNE 11***
 
-Think I just got devise and mongoid to work nicely together. It's still very basic, but I think most things are now officially working as I expect them to. Next, I plan to:
-
-- put together all the devise views etc
+Mongoid and Devise now (seem to) work nicely together
+Basic authentication is up
+Basic authorization is up for user pages
+Basic workout/user pages are up and need some major re-styling. Next, I plan to:
 - create all the other models
-- do cancan
+- validate data entry
+- build/plan out all views
+
+Longer-term and random task list:
+- stylin'
+- attr_accessible
+- phone functionality / twilio integration
+- basic text search
+- gym pages
+- mobile stylin'
+- start using
+- stripe
+- inspirational twitter feed?
