@@ -32,7 +32,6 @@ group :test do
 end
 
 gem 'devise'
-
 gem 'jquery-rails'
 gem 'mongoid'
 gem 'bson_ext'
