@@ -1,5 +1,54 @@
 class User
   include Mongoid::Document
+
+  ## DEVISE STUFF AT BOTTOM, BECAUSE IT'S ANNOYING ##
+
+  has_many :workouts
+
+  field :first_name, type: String
+  field :last_name, type: String
+  field :phone, type: String
+  field :height, type: Integer
+  field :weight, type: Integer
+  field :birthdate, type: Date
+  field :email_verification_code, type: String
+  field :email_verified, type: Boolean, default: false
+  field :phone_verification_code, type: String
+  field :phone_verified, type: Boolean, default: false
+  field :pro_user, type: Boolean
+  field :active, type: Boolean
+  field :created_at, type: Date
+  field :role, type: String, default: "user"
+
+  def profile_complete
+    if weight && height && name && birthdate
+      return true
+    else
+      return false
+    end
+  end
+
+  def full_name
+    if first_name && last_name
+      "#{first_name} #{last_name}"
+    else
+      false
+    end
+  end
+
+  def name
+    full_name
+  end
+
+  def admin?
+    return true if role == "admin"
+    false
+  end
+
+  def formatted_phone
+    "(#{phone[0..2]})-#{phone[3..5]}-#{phone[6..9]}" if phone
+  end
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -36,39 +85,5 @@ class User
 
   ## Token authenticatable
   # field :authentication_token, :type => String
-
-  field :first_name, type: String
-  field :last_name, type: String
-  field :phone, type: String
-  field :height, type: Integer
-  field :weight, type: Integer
-  field :birthdate, type: Date
-  field :email_verification_code, type: String
-  field :email_verified, type: Boolean
-  field :phone_verification_code, type: String
-  field :phone_verified, type: Boolean
-  field :pro_user, type: Boolean
-  field :active, type: Boolean
-  field :created_at, type: Date
-
-  def profile_complete
-    if weight && height && name && birthdate
-      return true
-    else
-      return false
-    end
-  end
-
-  def full_name
-    if first_name && last_name
-      "#{first_name} #{last_name}"
-    else
-      false
-    end
-  end
-
-  def name
-    full_name
-  end
 
 end

@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  
+  before_filter :authenticate_user!, only: [:show, :edit, :update]
+  before_filter :authenticate_admin!, :only [:destroy, :index]
 
 	def show
     @user = User.find(params[:id])
@@ -42,4 +45,5 @@ class UsersController < ApplicationController
     flash[:success] = "User destroyed."
     redirect_to users_url
   end
+
 end
