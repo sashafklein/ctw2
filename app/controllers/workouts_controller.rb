@@ -15,8 +15,7 @@ class WorkoutsController < ApplicationController
     @workout = Workout.new(params[:workout])
     if @workout.save!
       flash[:success] = "Workout logged!"
-      sign_in @workout
-      redirect_to @workout
+      
     else
     	render 'new'
     end

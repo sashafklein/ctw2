@@ -16,6 +16,7 @@ Ctw2::Application.routes.draw do
   
   get '/register' => 'users#new'
   post '/register' => 'users#create'
+  post '/sms/' => 'sms#receive'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
