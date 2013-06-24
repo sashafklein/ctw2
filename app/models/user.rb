@@ -49,6 +49,10 @@ class User
     "(#{phone[0..2]})-#{phone[3..5]}-#{phone[6..9]}" if phone
   end
 
+  def self.find_by_phone(number)
+    where(:phone => number).first
+  end
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable

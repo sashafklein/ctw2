@@ -18,4 +18,9 @@ class Workout
   	end
   end
 
+  # Currently just a test parser. Removes all punctuation.
+  def self.parse_text(text)
+    text.gsub(/[^0-9a-z ]/i, '')
+  end
+
 end
