@@ -11,6 +11,7 @@ class SmsController < ApplicationController
     # 3. User phone registration
     # 2. Workout logging incorrect
     # 1. Workout logging correct
+  if User.find_by_phone(number)
     if body.downcase == ("y" || "yes")
     	report_success_to_user(number)
     elsif body.downcase == ("n" || "no")
@@ -20,6 +21,8 @@ class SmsController < ApplicationController
   	else
   		log_user_wod(number, body)
     end	 	
+  else
+  	send_message(number, "You must register on crushthewod.com before text-logging workouts!")
 	end
 
 	private
@@ -61,22 +64,17 @@ class SmsController < ApplicationController
 	end
 
 	def user_registration_text(number)
-		if User.find_by_phone(number)
-			if !User.find_by_phone(number).phone_verified
-				return true
-			end
+		if !User.find_by_phone(number).phone_verified
+			true
+		else
+			false
 		end
-		false
 	end
 
 	def confirm_user_phone(number)
-		if User.find_by_phone(number)
-			user = User.find_by_phone(number)
-			user.update_attribute(:phone_verified, true)
-			m = "Hey #{user.first_name.capitalize} - your number has been confirmed, and you're ready to start logging."
-		else
-			m = "We couldn't find your number. Please register on crushthewod.com first."
-		end
+		user = User.find_by_phone(number)
+		user.update_attribute(:phone_verified, true)
+		m = "Hey #{user.first_name.capitalize} - your number has been confirmed, and you're ready to start logging."
 		send_message(number, m)
 	end	
 
