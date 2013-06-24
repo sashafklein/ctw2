@@ -6,31 +6,33 @@ class SmsController < ApplicationController
     body = params["Body"]
     number = params["From"]
 
-  if User.find_by_phone(number)
+    if User.find_by_phone(number)
 
-  	# Confirmation of our text parsing
-    if body.downcase == ("y" || "yes")
-    	report_success_to_user(number)
-    elsif body.downcase == ("n" || "no")
-    	try_again(number)
+      # Confirmation of our text parsing
+      if body.downcase == ("y" || "yes")
+        report_success_to_user(number)
+      elsif body.downcase == ("n" || "no")
+        try_again(number)
 
-   	# User phone registration
-  	elsif user_registration_text(number)
-  		confirm_user_phone(number)
+      # User phone registration
+      elsif user_registration_text(number)
+        confirm_user_phone(number)
 
-  	# Workout logging
-  	else
-  		log_user_wod(number, body)
+      # Workout logging
+      else
+        log_user_wod(number, body)
+      end
+         
+    else
+      send_message(number, "You must register on crushthewod.com before text-logging workouts!")
     end
-    	 	
-  else
-  	send_message(number, "You must register on crushthewod.com before text-logging workouts!")
+
 	end
 
 	private
 
 	def respond_to_user(number, parsed_body)
-	 	send_message(number, "You logged '#{parsed_body}' -- y/n")
+	  send_message(number, "You logged '#{parsed_body}' -- y/n")
 	end
 
 	def log_user_wod(number, body)
