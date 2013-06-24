@@ -26,7 +26,6 @@ class SmsController < ApplicationController
     else
       send_message(number, "You must register on crushthewod.com before text-logging workouts!")
     end
-
 	end
 
 	private
