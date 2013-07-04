@@ -1,6 +1,6 @@
 class BoxesController < ApplicationController
   def index
-    @boxes = Box.all
+    @boxes = BoxDecorator.decorate_collection(Box.all)
   end
 
   def new
@@ -18,7 +18,7 @@ class BoxesController < ApplicationController
   end
 
   def show
-    @box = Box.find(params[:id])
+    @box = Box.find(params[:id]).decorate
   end
 
   def edit

@@ -2,12 +2,14 @@ class Workout
   include Mongoid::Document
 
   belongs_to :user
+  belongs_to :box
 
   field :name, type: String
   field :user_id, type: Integer
   field :description, type: String
   field :score, type: String
   field :created_at, type: Date
+  field :box_id, type: Integer
 
   def abridged_description
   	if description

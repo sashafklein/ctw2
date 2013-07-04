@@ -1,2 +1,16 @@
-%h1 Boxes#index
-%p Find me in app/views/boxes/index.html.erb
+%h1 Box List
+%br
+%table
+	%tr
+		%th Name
+		%th State
+		%th City
+		%th Athletes
+		%th Workouts Logged
+	- @boxes.each do |box|
+		%tr
+			%td= link_to box.name, box
+			%td= box.state
+			%td= box.city
+			%td= box.users.count
+			%td= box.workouts.count

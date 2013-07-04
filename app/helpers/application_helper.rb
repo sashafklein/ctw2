@@ -30,10 +30,6 @@ module ApplicationHelper
     date.strftime("%B %d, %Y")
   end
 
-  def showorthy_attribute?(attribute)
-    !attribute.include?('id')
-  end
-
   def format_attribute(name)
     name.split("_").map(&:capitalize).join(" ")
   end

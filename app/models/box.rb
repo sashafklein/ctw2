@@ -4,6 +4,7 @@ class Box
 
   has_and_belongs_to_many :users
   has_one :location
+  has_many :workouts
   
   accepts_nested_attributes_for :location
   

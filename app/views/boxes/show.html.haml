@@ -1,8 +1,14 @@
 %h1= @box.name
 %h2 Location:
-- if @box.location.present?
-	- @box.location.attributes.each do |a|
-		- if showorthy_attribute?(a[0])
-			%h3
-				= format_attribute(a[0])
-				%b= a[1]
+%h3
+	State
+	= @box.state
+%h3
+	City
+	= @box.city
+%h3
+	Address
+	= @box.address
+%h3
+	Zipcode
+	= @box.zip
