@@ -1,0 +1,8 @@
+%h1= @box.name
+%h2 Location:
+- if @box.location.present?
+	- @box.location.attributes.each do |a|
+		- if showorthy_attribute?(a[0])
+			%h3
+				= format_attribute(a[0])
+				%b= a[1]

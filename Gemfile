@@ -14,6 +14,7 @@ group :assets do
   gem 'bootstrap-sass', '~> 2.3.1.2'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'haml'
+  gem 'haml-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -42,6 +43,7 @@ gem "email_spec", ">= 1.2.1", :group => :test
 gem "cucumber-rails", ">= 1.3.0", :group => :test, :require => false
 gem "launchy", ">= 2.1.2", :group => :test
 gem "twilio-ruby"
+gem "binding_of_caller"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

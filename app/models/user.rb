@@ -4,7 +4,7 @@ class User
   ## DEVISE STUFF AT BOTTOM, BECAUSE IT'S ANNOYING ##
 
   has_many :workouts
-  has_many :boxes
+  has_and_belongs_to_many :boxes
 
   field :first_name, type: String
   field :last_name, type: String

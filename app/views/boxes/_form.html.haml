@@ -1,0 +1,18 @@
+= form_for @box do |f|
+	= f.label :name
+	= f.text_field :name
+
+	= f.fields_for @location do |l|
+		= l.label :state
+		= l.select :state, state_array
+
+		= l.label :city
+		= l.text_field :city
+
+		= l.label :street_address, "Address"
+		= l.text_field :street_address
+
+		= l.label :zipcode
+		= l.text_field :zipcode
+
+	= f.submit "Save changes", class: "button"
