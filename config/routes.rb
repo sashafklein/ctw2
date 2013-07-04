@@ -13,6 +13,10 @@ Ctw2::Application.routes.draw do
   resources :users do 
     resources :workouts
   end
+
+  resources :boxes do
+    resources :workouts
+  end
   
   get '/register' => 'users#new'
   post '/register' => 'users#create'
